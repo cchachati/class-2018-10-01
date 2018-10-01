@@ -9,13 +9,14 @@ library(lubridate)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 ```{r,message=FALSE}
-raw <- read_csv("polls_IT-parliament_2018-10-01.csv")
+x<-read_csv("polls_IT-parliament_2018-10-01.csv")
 ```
 Purpose of this document is to show polling results in Italy
 
 ```{r}
-raw%>%
-  ggplot(aes(x=date, y=LN, color="red"))+geom_point()+geom_point(aes(x=date, y=M5S,color="blue"))
+x%>%
+  select(date,LN)%>%
+  ggplot(aes(x=date,y=LN))+geom_point()
 
 ```
 
